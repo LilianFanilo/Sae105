@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portrait Chinois Lilian Peuron MMI-1-B</title>
+    <link rel="stylesheet" href="Java.js">
+    <link rel="stylesheet" href="Style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <section class="fond" id="Début">
+        <h1 class="Accueil">Portrait Chinois</h1>
+        <h2 class="sous-titre">Réalisé par Lilian Peuron</h2>
+        <a href="#vague" class="button"><strong>Commencer</strong></a>
+    </section>
+
+    <div class="liste-analogies"></div>
+
+    <section class="fond">
+        <form>
+
+            <section id="formulaire">
+                <h1 class="création">Créer votre propre analogie !</h1>
+                <div class="divcompte">
+
+                    <br>
+                    <label for="analogie">Si j'étais...</label>
+                    <br>
+                    <input type="text" id="analogie" name="analogie" required>
+                    <br>
+                    <label for="valeurAnalogie">Je serais...</label>
+                    <br>
+                    <input type="text" id="valeurAnalogie" name="valeurAnalogie" required>
+                    <br>
+                    <label for="analogie">Pourquoi ?</label>
+                    <br>
+                    <input type="text" id="reponseAnalogie" name="reponseAnalogie" required>
+                    <br>
+                    <label for="courriel">Votre adresse de courriel</label>
+                    <br>
+                    <input type="email" id="courriel" name="courriel" required>
+                    <br>
+                    <input type="button" id="envoi" value="Envoyer le message !">
+                    <div id="messageApresEnvoi"></div>
+
+
+                </div>
+            </section>
+
+            <section class="NouvelleAnalogie">
+                <h2 class="NAintro">Si j’étais <span id="analogieSuggeree"></span>, je serais <span
+                        id="valeurAnalogieSuggeree"></span></h2>
+                <p><span id="reponseAnalogieSuggeree"></span></p>
+            </section>
+
+            <a href="#Début" class="button3"><strong>Page d'Accueil</strong></a>
+
+            <footer>
+                <div class="volet volet-invisible">
+                    <h5 class="ML">Mentions légales</h5>
+                    <p class="sources"><strong>Sources des images:</strong>
+                        <br>
+                        <strong>Page d'accueil et fin:</strong>
+                        <br>
+                        https://wall.alphacoders.com/wallpaper.php?i=595860&w=1920&h=1080&type=crop&lang=French
+                        <br>
+                        <strong>L'eau:</strong>
+                        https://www.mesrideaux.fr/blog/les-tissus-japonais/
+                        <br>
+                        https://www.ohmyprints.com/fr/image/La-grande-vague-de-Kanagawa-Hokusai/139452
+                        <br>
+                        <strong>Halloween:</strong>
+                        https://images.app.goo.gl/ujjFsryPa5e3eVn4A
+                        <br>
+                        https://fr.freepik.com/vecteurs-libre/joyeux-halloween-fond-invitation-fete-citrouilles_10723928.htm
+                        <br>
+                        https://images.app.goo.gl/HDKTsaXMDCSjJB2u5
+                        <br>
+                        <strong>Hérisson:</strong>
+                        https://www.consoglobe.com/mission-herisson-cg
+                        <br>
+                        <strong>Sonic:</strong>
+                        https://wall.alphacoders.com/wallpaper.php?i=936805&w=1920&h=1080&type=crop&lang=French
+                        <br>
+                        https://www.youtube.com/user/sonic?app=desktop&gl=LU&itct=CGoQoTAiEwjf38eggO3WAhUG3pwKHS13BNgyCWM0LWZlZWQtcw%3D%3D&hl=fr&client=mv-google
+                        <br>
+                        <strong>Toy Story:</strong>
+                        https://wall.alphacoders.com/wallpaper.php?i=333943&w=1920&h=1080&type=crop&lang=French
+                        <br>
+                        https://fr.disney.be/films/toy-story-4
+                        <br>
+                        <strong>Japon:</strong>
+                        https://wall.alphacoders.com/wallpaper.php?i=541326&w=1920&h=1080&type=crop&lang=French
+                        <br>
+                        https://www.huwans.com/journal/lessentiel-du-japon-19249.html
+                        <br>
+                        <strong>Jazz</strong>
+                        https://www.amazon.fr/Jazz-Saxophone-Instrumental-Relaxation-Saxaphone/dp/B00CFSOI3U
+                        <br>
+                        https://fr.depositphotos.com/vector-images/swing-jazz-motif.html
+                        <br>
+                        <strong>Lien scrollbar:</strong>
+                        https://youtu.be/fWg3G7DHXL0
+                        <br>
+                        https://www.youtube.com/watch?v=bDRLj82fk7Q
+                        <br>
+                        <strong>lien médiaqueries:</strong>
+                        https://youtu.be/wVZHVTbBEhc</p>
+                </div>
+            </footer>
+
+
+        </form>
+
+    </section>
+
+
+</body>
+
+<script src="Java.js"></script>
+
+<script>
+    document.querySelector("#envoi").addEventListener('click', function (e) {
+        var urlVisitee =
+            "https://perso-etudiant.u-pem.fr/~gambette/portrait/api.php?format=json&login=gambette&courriel=" +
+            document.querySelector("#courriel").value + "&message=Si j'étais ... " + document.querySelector(
+                "#analogie").value + " je serais ... " + document.querySelector("#valeurAnalogie").value;
+        fetch(urlVisitee).then(function (response) {
+            response.json().then(function (data) {
+                if (data.status == "success") {
+                    document.querySelector("#messageApresEnvoi").innerHTML =
+                        "Votre message a bien été reçu";
+                } else {
+                    document.querySelector("#messageApresEnvoi").innerHTML =
+                        "Problème : votre message n'a pas été reçu";
+                }
+            })
+        })
+
+    })
+
+    document.querySelector("#analogie").addEventListener('keyup', function (e) {
+        console.log("Champ analogie modifié");
+        document.querySelector("#analogieSuggeree").innerHTML = document.querySelector("#analogie").value;
+    })
+
+    document.querySelector("#valeurAnalogie").addEventListener('keyup', function (e) {
+        console.log("Champ valeurAnalogie modifié");
+        document.querySelector("#valeurAnalogieSuggeree").innerHTML = document.querySelector("#valeurAnalogie")
+            .value;
+    })
+
+    document.querySelector("#reponseAnalogie").addEventListener('keyup', function (e) {
+        console.log("Champ reponseAnalogie modifié");
+        document.querySelector("#reponseAnalogieSuggeree").innerHTML = document.querySelector(
+                "#reponseAnalogie")
+            .value;
+    })
+</script>
+
+</html>
